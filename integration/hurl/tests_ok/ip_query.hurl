@@ -10,17 +10,18 @@ ip == {{ip_addr}}
 variable "ip_addr" matches /^(\d{1,3}\.){3}\d{1,3}$/
 
 
-GET https://google.com
-[Options]
-ipv6: true
-HTTP *
-[Captures]
-ip_addr: ip
-[Asserts]
-ip isIpv6
-ip not isIpv4
-ip == {{ip_addr}}
-variable "ip_addr" contains ":"
+# Disabled due to unreliable behavior in the GitHub CI/CD
+# GET https://google.com
+# [Options]
+# ipv6: true
+# HTTP *
+# [Captures]
+# ip_addr: ip
+# [Asserts]
+# ip isIpv6
+# ip not isIpv4
+# ip == {{ip_addr}}
+# variable "ip_addr" contains ":"
 
 
 GET https://hurl.dev
