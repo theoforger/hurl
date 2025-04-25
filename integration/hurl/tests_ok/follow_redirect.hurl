@@ -13,6 +13,8 @@ Accept: text/plain
 HTTP 200
 [Asserts]
 redirects count == 2
+redirects nth 0 url == "http://localhost:8000/follow-redirect"
+redirects nth 1 url == "http://localhost:8000/following-redirect"
 url == "http://localhost:8000/followed-redirect"
 `Followed redirect!`
 
@@ -24,6 +26,8 @@ Accept: text/plain
 HTTP 200
 [Asserts]
 redirects count == 2
+redirects nth 0 url == "http://localhost:8000/follow-redirect"
+redirects nth 1 url == "http://localhost:8000/following-redirect"
 url == "http://localhost:8000/followed-redirect"
 `Followed redirect!`
 
@@ -33,6 +37,7 @@ Accept: text/plain
 HTTP 200
 [Asserts]
 redirects count == 1
+redirects nth 0 url == "http://localhost:8000/follow-redirect/relative/foo"
 url == "http://localhost:8000/follow-redirect/bar"
 `Followed relative redirect!`
 
@@ -43,6 +48,7 @@ Authorization: Basic Ym9iQGVtYWlsLmNvbTpzZWNyZXQ=
 HTTP 200
 [Asserts]
 redirects count == 1
+redirects nth 0 url == "http://localhost:8000/follow-redirect-basic-auth?change_host=true"
 header "Location" not exists
 `Followed redirect without Authorization header!`
 
@@ -54,6 +60,7 @@ Authorization: Basic Ym9iQGVtYWlsLmNvbTpzZWNyZXQ=
 HTTP 200
 [Asserts]
 redirects count == 1
+redirects nth 0 url == "http://localhost:8000/follow-redirect-basic-auth?change_host=false"
 header "Location" not exists
 `Followed redirect with Authorization header!`
 
@@ -65,6 +72,7 @@ user: bob@email.com:secret
 HTTP 200
 [Asserts]
 redirects count == 1
+redirects nth 0 url == "http://localhost:8000/follow-redirect-basic-auth?change_host=true"
 header "Location" not exists
 `Followed redirect without Authorization header!`
 
@@ -75,6 +83,7 @@ user: bob@email.com:secret
 HTTP 200
 [Asserts]
 redirects count == 1
+redirects nth 0 url == "http://localhost:8000/follow-redirect-basic-auth?change_host=false"
 header "Location" not exists
 `Followed redirect with Authorization header!`
 
@@ -86,6 +95,7 @@ bob@email.com: secret
 HTTP 200
 [Asserts]
 redirects count == 1
+redirects nth 0 url == "http://localhost:8000/follow-redirect-basic-auth?change_host=true"
 header "Location" not exists
 `Followed redirect without Authorization header!`
 
@@ -96,6 +106,7 @@ bob@email.com: secret
 HTTP 200
 [Asserts]
 redirects count == 1
+redirects nth 0 url == "http://localhost:8000/follow-redirect-basic-auth?change_host=false"
 header "Location" not exists
 `Followed redirect with Authorization header!`
 
@@ -105,5 +116,6 @@ Accept: text/plain
 HTTP 200
 [Asserts]
 redirects count == 1
+redirects nth 0 url == "http://localhost:8000/follow-redirect-308"
 url == "http://localhost:8000/followed-redirect-post"
 `Followed redirect POST!`
