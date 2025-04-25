@@ -325,6 +325,7 @@ pub enum FilterValue {
     ToFloat,
     ToInt,
     ToString,
+    Url,
     UrlDecode,
     UrlEncode,
     UrlQueryParam {
@@ -361,6 +362,7 @@ impl FilterValue {
             FilterValue::ToFloat => "toFloat",
             FilterValue::ToInt => "toInt",
             FilterValue::ToString => "toString",
+            FilterValue::Url => "url",
             FilterValue::UrlDecode => "urlDecode",
             FilterValue::UrlEncode => "urlEncode",
             FilterValue::UrlQueryParam { .. } => "urlQueryParam",

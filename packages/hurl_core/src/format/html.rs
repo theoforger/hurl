@@ -802,6 +802,7 @@ impl HtmlFormatter {
             | FilterValue::ToFloat
             | FilterValue::ToInt
             | FilterValue::ToString
+            | FilterValue::Url
             | FilterValue::UrlDecode
             | FilterValue::UrlEncode => {}
         };

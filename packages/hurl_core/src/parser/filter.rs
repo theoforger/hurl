@@ -73,6 +73,7 @@ pub fn filter(reader: &mut Reader) -> ParseResult<Filter> {
             to_float_filter,
             to_int_filter,
             to_string_filter,
+            url_filter,
             url_decode_filter,
             url_encode_filter,
             url_query_param_filter,
@@ -219,6 +220,11 @@ fn to_int_filter(reader: &mut Reader) -> ParseResult<FilterValue> {
 fn to_string_filter(reader: &mut Reader) -> ParseResult<FilterValue> {
     try_literal("toString", reader)?;
     Ok(FilterValue::ToString)
+}
+
+fn url_filter(reader: &mut Reader) -> ParseResult<FilterValue> {
+    try_literal("url", reader)?;
+    Ok(FilterValue::Url)
 }
 
 fn url_encode_filter(reader: &mut Reader) -> ParseResult<FilterValue> {
