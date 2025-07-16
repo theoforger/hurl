@@ -79,6 +79,7 @@ jsonpath "$.dates[0]" toDate "%+" < {{ date1 }}
 jsonpath "$.dates[1]" toDate "%+" != {{ date0 }}
 jsonpath "$.dates[1]" toDate "%+" >= {{ date0 }}
 jsonpath "$.dates[1]" toDate "%+" > {{ date0 }}
+jsonpath "$.uuid" isUuid
 
 
 # FIXME do we accept count filter on object?
